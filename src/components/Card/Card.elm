@@ -1,38 +1,32 @@
 module Components.Card.Card exposing (..)
 
 import Html exposing (div, p, text, h4)
-import Components.Card.CardStyle exposing (
-    cardStyleBig,
-    cardStyleSmall, 
-    cardLeftStyleBig, 
-    cardLeftStyleSmall, 
-    cardRightStyleBig,
-    cardRightStyleSmall,
-    cardTitle,
-    cardInfo,
-    cardDescription)
+import Components.Card.CardStyle exposing (..)
 import Html exposing (option)
-import Html.Events exposing (onMouseOver)
-import Html.Attributes exposing (style)
 
 -- VIEW
+type alias CardSize = String
 
 -- functions
+cardStyleSwitch : CardSize -> List (Html.Attribute msg)
 cardStyleSwitch option =
     case option of
         "big" -> cardStyleBig
         _ -> cardStyleSmall
+cardLeftStyleSwitch : CardSize -> List (Html.Attribute msg)
 cardLeftStyleSwitch option =
     case option of
        "big" -> cardLeftStyleBig
        _ -> cardLeftStyleSmall
 
+cardRightStyleSwitch : CardSize -> List (Html.Attribute msg)
 cardRightStyleSwitch option =
     case option of
        "big" -> cardRightStyleBig
        _ -> cardRightStyleSmall
 
 -- template
+cardView : CardSize -> Html.Html msg
 cardView options = 
     div (cardStyleSwitch options)
         [

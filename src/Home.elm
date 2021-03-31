@@ -1,11 +1,10 @@
 module Home exposing (..)
 
 import Browser
-import Html exposing (div, h1, text, br)
+import Html exposing (div, h1, text)
 import Html.Attributes exposing (style)
 import Components.Card.Card exposing (cardView)
 import Style.Colors exposing (colors)
-import Html.Attributes exposing (width)
 
 main = Browser.sandbox { init = init, update = update, view = view }
 
