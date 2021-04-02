@@ -5,28 +5,28 @@ import Components.Card.CardStyle exposing (..)
 import Html exposing (option)
 
 -- VIEW
-type alias CardSize = String
+type Size = Small | Large
 
 -- functions
-cardStyleSwitch : CardSize -> List (Html.Attribute msg)
+cardStyleSwitch : Size -> List (Html.Attribute msg)
 cardStyleSwitch option =
     case option of
-        "big" -> cardStyleBig
-        _ -> cardStyleSmall
-cardLeftStyleSwitch : CardSize -> List (Html.Attribute msg)
+        Large -> cardStyleBig
+        Small -> cardStyleSmall
+cardLeftStyleSwitch : Size -> List (Html.Attribute msg)
 cardLeftStyleSwitch option =
     case option of
-       "big" -> cardLeftStyleBig
-       _ -> cardLeftStyleSmall
+        Large -> cardLeftStyleBig
+        Small -> cardLeftStyleSmall
 
-cardRightStyleSwitch : CardSize -> List (Html.Attribute msg)
+cardRightStyleSwitch : Size -> List (Html.Attribute msg)
 cardRightStyleSwitch option =
     case option of
-       "big" -> cardRightStyleBig
-       _ -> cardRightStyleSmall
+       Large -> cardRightStyleBig
+       Small -> cardRightStyleSmall
 
 -- template
-cardView : CardSize -> Html.Html msg
+cardView : Size -> Html.Html msg
 cardView options = 
     div (cardStyleSwitch options)
         [
